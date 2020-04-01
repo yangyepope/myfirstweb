@@ -1,7 +1,7 @@
 
 from django.conf.urls import url
 
-from myfirstweb.myfirstapp import views
+from myfirstapp import views
 
 
 
