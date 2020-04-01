@@ -13,17 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import sys
+import os
+o_path = os.getcwd() # 返回当前工作目录
 
+sys.path.append(o_path) # 添加自己指定的搜索路径
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
 from django.views.generic import TemplateView
-import myfirstweb.myfirstapp.urls
+from myfirstweb.myfirstapp import urls
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/', include(myfirstweb.myfirstweb.urls)),
+    url(r'^api/', include(urls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
 ]
