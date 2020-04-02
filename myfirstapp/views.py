@@ -4,7 +4,7 @@ from django.core import serializers
 from django.http import JsonResponse
 import json
 
-from .models import Book
+from myfirstapp.models import Book
 from django.shortcuts import render
 
 # Create your views here.
