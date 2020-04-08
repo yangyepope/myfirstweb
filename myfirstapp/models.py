@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 # -*- coding: utf-8 -*-
 
+from django.utils import timezone
 
 from django.db import models
 
@@ -14,3 +15,16 @@ class Book(models.Model):
 
     def __unicode__(self):
         return self.book_name
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=64)
+    slug = models.CharField(max_length=64)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+    
+    class Mete:
+        ordering = ('-pub_date',)
+    def __unicode__(self):
+        return self.title
+
